@@ -7,7 +7,11 @@
             Вы ошиблись паролем, попробуйте еще раз
         </p>
     {% else %}
-        <p>Please, use the following form to log-in:</p>
+        <p>
+            Please, use the following form to log-in.
+            If you don't have an account
+            <a href="{% url "register" %}">register here</a>.
+        </p>
     {% endif %}
     <div class="login-form">
         <form action="{% url 'login' %}" method="post">
@@ -21,6 +25,12 @@
                 Forgotten your password?
             </a>
         </p>
+        <li class="google">
+            <a href="{% url "social:begin" "google-oauth2" %}">
+                Sign in with Google
+            </a>
+        </li>
 
     </div>
+    <a href="/account/vk/login/vk-oauth2">Тык для вк</a>
 {% endblock %}
